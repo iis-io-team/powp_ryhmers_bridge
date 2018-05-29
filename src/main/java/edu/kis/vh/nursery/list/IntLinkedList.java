@@ -1,22 +1,58 @@
 package edu.kis.vh.nursery.list;
 
-public class IntLinkedList {
+class IntLinkedList {
 
-	Node last;
-	int i;
+	static final int EMPTY = -1;
+	
+	class Node {
 
-	public void push(int i) {
-		if (last == null)
-			last = new Node(i);
+		private final int value;
+		private Node prev;
+		private Node next;
+
+		public Node(int value) {
+			this.value = value;
+		}
+
+		public int getValue() {
+			return value;
+		}
+
+		public Node getPrev() {
+			return prev;
+		}
+
+		public void setPrev(Node prev) {
+			this.prev = prev;
+		}
+
+		public Node getNext() {
+			return next;
+		}
+
+		public void setNext(Node next) {
+			this.next = next;
+		}
+		
+		/*
+		 * W innych klasach ustawianie wartosci zostalo zamienione na uzycie settera a pobieranie na uzycie gettera
+		 */
+	}
+
+	private Node last;
+
+	public void push(int index) {
+		if (getLast() == null)
+			setLast(new Node(index));
 		else {
-			last.next = new Node(i);
-			last.next.prev = last;
-			last = last.next;
+			getLast().setNext(new Node(index));
+			getLast().getNext().setPrev(getLast());
+			setLast(getLast().getNext());
 		}
 	}
 
 	public boolean isEmpty() {
-		return last == null;
+		return getLast() == null;
 	}
 
 	public boolean isFull() {
@@ -25,16 +61,23 @@ public class IntLinkedList {
 
 	public int top() {
 		if (isEmpty())
-			return -1;
-		return last.value;
+			return EMPTY;
+		return getLast().getValue();
 	}
 
 	public int pop() {
 		if (isEmpty())
-			return -1;
-		int ret = last.value;
-		last = last.prev;
+			return EMPTY;
+		int ret = getLast().getValue();
+		setLast(getLast().getPrev());
 		return ret;
 	}
 
+	Node getLast() {
+		return last;
+	}
+
+	void setLast(Node last) {
+		this.last = last;
+	}
 }
