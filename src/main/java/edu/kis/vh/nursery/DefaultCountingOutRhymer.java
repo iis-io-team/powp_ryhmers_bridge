@@ -1,5 +1,10 @@
 package edu.kis.vh.nursery;
 
+/**
+ * Klasa DefaultCountingOutRhymer została publiczna by można było korzystać z konkretnych jej implementacji oraz
+ * budować ją w fabryce.
+ */
+
 public class DefaultCountingOutRhymer {
 
 	private static final int NUMBERS_CAPACITY = 12;

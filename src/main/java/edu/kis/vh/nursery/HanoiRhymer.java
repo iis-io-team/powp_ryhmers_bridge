@@ -1,5 +1,9 @@
 package edu.kis.vh.nursery;
 
+/**
+ * Klasa HanoiRhymer została publiczna ponieważ inaczej fabryka nie miała by do niej dostępu
+ */
+
 public class HanoiRhymer extends DefaultCountingOutRhymer {
 
 	private int totalRejected = 0;

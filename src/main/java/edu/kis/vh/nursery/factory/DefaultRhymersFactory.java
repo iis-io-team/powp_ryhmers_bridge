@@ -5,6 +5,11 @@ import edu.kis.vh.nursery.FIFORhymer;
 import edu.kis.vh.nursery.HanoiRhymer;
 import edu.kis.vh.nursery.factory.Rhymersfactory;
 
+/**
+ * Klasa DefaultRhymersFactory została publiczna żeby można było korzystać
+ * z fabryki do pobierania implementacji klasy DefaultCountingOutRhymer.
+ */
+
 public class DefaultRhymersFactory implements Rhymersfactory {
 
 	@Override
