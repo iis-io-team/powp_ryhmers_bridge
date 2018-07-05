@@ -3,14 +3,13 @@ package edu.kis.vh.nursery.factory;
 import edu.kis.vh.nursery.DefaultCountingOutRhymer;
 import edu.kis.vh.nursery.FIFORhymer;
 import edu.kis.vh.nursery.HanoiRhymer;
-import edu.kis.vh.nursery.factory.Rhymersfactory;
 
 /**
  * Klasa DefaultRhymersFactory została publiczna żeby można było korzystać
  * z fabryki do pobierania implementacji klasy DefaultCountingOutRhymer.
  */
 
-public class DefaultRhymersFactory implements Rhymersfactory {
+public class DefaultRhymersFactory implements RhymersFactory {
 
 	@Override
 	public DefaultCountingOutRhymer getStandardRhymer() {
