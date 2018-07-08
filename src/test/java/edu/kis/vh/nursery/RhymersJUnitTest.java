@@ -1,5 +1,6 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.collection.IntArrayStack;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -29,18 +30,25 @@ public class RhymersJUnitTest {
 
 	@Test
 	public void testIsFull() {
-		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
+		DefaultCountingOutRhymer listRhymer = new DefaultCountingOutRhymer();
+		DefaultCountingOutRhymer arrayRhymer = new DefaultCountingOutRhymer(new IntArrayStack());
 		final int STACK_CAPACITY = 12;
+		for (int i = 0; i < 100; i++) {
+            boolean result = listRhymer.isFull();
+            Assert.assertEquals(false, result);
+            listRhymer.countIn(888);
+        }
 		for (int i = 0; i < STACK_CAPACITY; i++) {
-			boolean result = rhymer.isFull();
+			boolean result = arrayRhymer.isFull();
 			Assert.assertEquals(false, result);
-			rhymer.countIn(888);
+            arrayRhymer.countIn(888);
 		}
+        boolean result = arrayRhymer.isFull();
+        Assert.assertEquals(true, result);
+
         //DefaultCountingOutRhymer domyślnie korzysta z IntLinkedList który podczas sprawdzania czy jest pełny
         //zwraca zawsze false. Jest to spowodowane tym że IntLinkedList nie ma ograniczenia jeżeli chodzi o rozmiar
 
-		boolean result = rhymer.isFull();
-		Assert.assertEquals(true, result);
 	}
 
 	@Test
