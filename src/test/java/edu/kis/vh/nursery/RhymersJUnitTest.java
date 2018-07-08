@@ -36,6 +36,8 @@ public class RhymersJUnitTest {
 			Assert.assertEquals(false, result);
 			rhymer.countIn(888);
 		}
+        //DefaultCountingOutRhymer domyślnie korzysta z IntLinkedList który podczas sprawdzania czy jest pełny
+        //zwraca zawsze false. Jest to spowodowane tym że IntLinkedList nie ma ograniczenia jeżeli chodzi o rozmiar
 
 		boolean result = rhymer.isFull();
 		Assert.assertEquals(true, result);
@@ -44,7 +46,7 @@ public class RhymersJUnitTest {
 	@Test
 	public void testPeekaboo() {
 		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
-		final int EMPTY_STACK_VALUE = -1;
+		final int EMPTY_STACK_VALUE = 0; // Wartości zwracane gdy lista jest pusta zmieniły się z -1 na 0
 
 		int result = rhymer.peekaboo();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
@@ -61,7 +63,7 @@ public class RhymersJUnitTest {
 	@Test
 	public void testCountOut() {
 		DefaultCountingOutRhymer rhymer = new DefaultCountingOutRhymer();
-		final int EMPTY_STACK_VALUE = -1;
+		final int EMPTY_STACK_VALUE = 0;
 
 		int result = rhymer.countOut();
 		Assert.assertEquals(EMPTY_STACK_VALUE, result);
