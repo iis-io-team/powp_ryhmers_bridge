@@ -5,6 +5,8 @@ import edu.kis.vh.nursery.collection.StackInterface;
 
 /**
  * Klasa FIFORhymer została publiczna ponieważ inaczej fabryka nie miała by do niej dostępu
+ *
+ * Zastosowałem kolejkę IntLinkedList ze względu na (teoretycznie) nieograniczone miejsce w kolejce.
  */
 
 public class FIFORhymer extends DefaultCountingOutRhymer {
