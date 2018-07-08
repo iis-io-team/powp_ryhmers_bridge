@@ -23,6 +23,7 @@ public class FIFORhymer extends DefaultCountingOutRhymer {
 
 	@Override
 	public int countOut() {
+	    //Tutaj jest łamana zasada izolacji ponieważ odwołujemy się bezpośrednio do metod klasy IntLinkedList.
 		while (!callCheck())
 			stack.push(super.countOut());
 		
