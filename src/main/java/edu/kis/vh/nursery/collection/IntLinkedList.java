@@ -32,14 +32,14 @@ public class IntLinkedList implements StackInterface {
 	@Override
     public int top() {
 		if (isEmpty())
-			return -1;
+			return LIST_IS_EMPTY_VALUE;
 		return getLast().getValue();
 	}
 
 	@Override
     public int pop() {
 		if (isEmpty())
-			return -1;
+			return LIST_IS_EMPTY_VALUE;
 		int ret = getLast().getValue();
 		setLast(getLast().getPrev());
 		size--;

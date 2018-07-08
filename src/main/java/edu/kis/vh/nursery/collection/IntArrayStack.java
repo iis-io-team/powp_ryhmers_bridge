@@ -25,13 +25,13 @@ public class IntArrayStack implements StackInterface {
 
     public int top() {
         if (isEmpty())
-            return -1;
+            return LIST_IS_EMPTY_VALUE;
         return numbers[total];
     }
 
     public int pop() {
         if (isEmpty())
-            return -1;
+            return LIST_IS_EMPTY_VALUE;
         return numbers[total--];
     }
 
