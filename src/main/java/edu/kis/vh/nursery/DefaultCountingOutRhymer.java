@@ -1,5 +1,7 @@
 package edu.kis.vh.nursery;
 
+import edu.kis.vh.nursery.array.IntArrayStack;
+
 /**
  * Klasa DefaultCountingOutRhymer została publiczna by można było korzystać z konkretnych jej implementacji oraz
  * budować ją w fabryce.
@@ -7,41 +9,37 @@ package edu.kis.vh.nursery;
 
 public class DefaultCountingOutRhymer {
 
-	private static final int NUMBERS_CAPACITY = 12;
+    private IntArrayStack intArrayStack;
 
-	private static final int EMPTY_STACK_VALUE = -1;
+    public DefaultCountingOutRhymer() {
+        this.intArrayStack = new IntArrayStack();
+    }
 
-	private int[] numbers = new int[NUMBERS_CAPACITY];
+    public DefaultCountingOutRhymer(IntArrayStack intArrayStack) {
+        this.intArrayStack = intArrayStack;
+    }
 
-	private int total = EMPTY_STACK_VALUE;
+    public int getTotal() {
+        return intArrayStack.getTotal();
+    }
 
-	public void countIn(int in) {
-		if (!isFull())
-			numbers[++total] = in;
-	}
+    void countIn(int in) {
+        intArrayStack.countIn(in);
+    }
 
-	protected boolean callCheck() {
-		return total == EMPTY_STACK_VALUE;
-	}
+    boolean callCheck() {
+        return intArrayStack.callCheck();
+    }
 
-	protected boolean isFull() {
-		return total == NUMBERS_CAPACITY - 1;
-	}
+    boolean isFull() {
+        return intArrayStack.isFull();
+    }
 
-	protected int peekaboo() {
-		if (callCheck())
-			return -1;
-		return numbers[total];
-	}
+    int peekaboo() {
+        return intArrayStack.peekaboo();
+    }
 
-	public int countOut() {
-		if (callCheck())
-			return -1;
-		return numbers[total--];
-	}
-
-	public int getTotal() {
-		return total;
-	}
-	
+    int countOut() {
+        return intArrayStack.countOut();
+    }
 }

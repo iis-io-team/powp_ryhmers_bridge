@@ -15,15 +15,15 @@ public class IntArrayStack {
             numbers[++total] = in;
     }
 
-    protected boolean callCheck() {
+    public boolean callCheck() {
         return total == EMPTY_STACK_VALUE;
     }
 
-    protected boolean isFull() {
+    public boolean isFull() {
         return total == NUMBERS_CAPACITY - 1;
     }
 
-    protected int peekaboo() {
+    public int peekaboo() {
         if (callCheck())
             return -1;
         return numbers[total];
