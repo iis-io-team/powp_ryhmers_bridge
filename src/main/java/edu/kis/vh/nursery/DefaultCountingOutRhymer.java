@@ -6,6 +6,10 @@ import edu.kis.vh.nursery.list.StackInterface;
 /**
  * Klasa DefaultCountingOutRhymer została publiczna by można było korzystać z konkretnych jej implementacji oraz
  * budować ją w fabryce.
+ *
+ * Po zmianach wprowadzonych w zadaniu 3.1.5 i 3.1.6 (Bridge) Klasa DefaultCountingOutRhymer jest uniwersalna pod kątem
+ * implementacji listy. Można wykorzystać i IntLinkedList jak i IntArrayStack.
+ * Domyślnie jest stosowany IntLinkedList.
  */
 
 public class DefaultCountingOutRhymer {
