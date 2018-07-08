@@ -1,13 +1,14 @@
 package edu.kis.vh.nursery.list;
 
-public class IntLinkedList {
+public class IntLinkedList implements StackInterface {
 
 	private Node last;
 	private int index;
 	private int size;
 
 
-	public void push(int i) {
+	@Override
+    public void push(int i) {
 		if (getLast() == null)
 			setLast(new Node(i));
 		else {
@@ -18,21 +19,25 @@ public class IntLinkedList {
 		size++;
 	}
 
-	public boolean isEmpty() {
+	@Override
+    public boolean isEmpty() {
 		return getLast() == null;
 	}
 
-	public boolean isFull() {
+	@Override
+    public boolean isFull() {
 		return false;
 	}
 
-	public int top() {
+	@Override
+    public int top() {
 		if (isEmpty())
 			return -1;
 		return getLast().getValue();
 	}
 
-	public int pop() {
+	@Override
+    public int pop() {
 		if (isEmpty())
 			return -1;
 		int ret = getLast().getValue();
@@ -41,7 +46,8 @@ public class IntLinkedList {
 		return ret;
 	}
 
-	public int getSize() {
+	@Override
+    public int getSize() {
 		return size;
 	}
 
