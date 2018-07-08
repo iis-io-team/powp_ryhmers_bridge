@@ -1,6 +1,4 @@
-package edu.kis.vh.nursery.array;
-
-import edu.kis.vh.nursery.list.StackInterface;
+package edu.kis.vh.nursery.collection;
 
 public class IntArrayStack implements StackInterface {
 
