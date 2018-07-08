@@ -1,9 +1,11 @@
 package edu.kis.vh.nursery.list;
 
-class IntLinkedList {
+public class IntLinkedList {
 
 	private Node last;
 	private int index;
+	private int size;
+
 
 	public void push(int i) {
 		if (getLast() == null)
@@ -13,6 +15,7 @@ class IntLinkedList {
 			getLast().getNext().setPrev(getLast());
 			setLast(getLast().getNext());
 		}
+		size++;
 	}
 
 	public boolean isEmpty() {
@@ -34,7 +37,12 @@ class IntLinkedList {
 			return -1;
 		int ret = getLast().getValue();
 		setLast(getLast().getPrev());
+		size--;
 		return ret;
+	}
+
+	public int getSize() {
+		return size;
 	}
 
 	Node getLast() {

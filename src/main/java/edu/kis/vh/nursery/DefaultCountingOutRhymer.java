@@ -1,6 +1,6 @@
 package edu.kis.vh.nursery;
 
-import edu.kis.vh.nursery.array.IntArrayStack;
+import edu.kis.vh.nursery.list.IntLinkedList;
 
 /**
  * Klasa DefaultCountingOutRhymer została publiczna by można było korzystać z konkretnych jej implementacji oraz
@@ -9,37 +9,37 @@ import edu.kis.vh.nursery.array.IntArrayStack;
 
 public class DefaultCountingOutRhymer {
 
-    private IntArrayStack intArrayStack;
+    private IntLinkedList intLinkedList;
 
     public DefaultCountingOutRhymer() {
-        this.intArrayStack = new IntArrayStack();
+        this.intLinkedList = new IntLinkedList();
     }
 
-    public DefaultCountingOutRhymer(IntArrayStack intArrayStack) {
-        this.intArrayStack = intArrayStack;
+    public DefaultCountingOutRhymer(IntLinkedList intLinkedList) {
+        this.intLinkedList = intLinkedList;
     }
 
     public int getTotal() {
-        return intArrayStack.getTotal();
+        return intLinkedList.getSize();
     }
 
     void countIn(int in) {
-        intArrayStack.countIn(in);
+        intLinkedList.push(in);
     }
 
     boolean callCheck() {
-        return intArrayStack.callCheck();
+        return intLinkedList.isEmpty();
     }
 
     boolean isFull() {
-        return intArrayStack.isFull();
+        return intLinkedList.isFull();
     }
 
     int peekaboo() {
-        return intArrayStack.peekaboo();
+        return intLinkedList.top();
     }
 
     int countOut() {
-        return intArrayStack.countOut();
+        return intLinkedList.pop();
     }
 }
