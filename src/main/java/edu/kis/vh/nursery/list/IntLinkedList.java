@@ -2,38 +2,42 @@ package edu.kis.vh.nursery.list;
 
 public class IntLinkedList {
 
-	Node last;
-	int i;
+    private Node last;
 
-	public void push(int i) {
-		if (last == null)
-			last = new Node(i);
-		else {
-			last.next = new Node(i);
-			last.next.prev = last;
-			last = last.next;
+    protected static boolean isFull() {
+        return false;
+    }
+
+    protected void push(int i) {
+        if (last == null) {
+            last = new Node(i);
+        } else {
+            last.setNext(new Node(i));
+            last.getNext().setPrev(last);
+            last = last.next;
 		}
 	}
 
-	public boolean isEmpty() {
+    private boolean isEmpty() {
 		return last == null;
 	}
 
-	public boolean isFull() {
-		return false;
+    protected int top() {
+        if (isEmpty()) {
+            return -1;
+        }
+        
+        return last.getValue();
 	}
 
-	public int top() {
-		if (isEmpty())
-			return -1;
-		return last.value;
-	}
+    protected int pop() {
+        if (isEmpty()) {
+            return -1;
+        }
 
-	public int pop() {
-		if (isEmpty())
-			return -1;
-		int ret = last.value;
-		last = last.prev;
+        int ret = last.getValue();
+        last = last.getPrev();
+
 		return ret;
 	}
 
